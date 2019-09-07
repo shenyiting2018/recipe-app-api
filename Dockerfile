@@ -1,13 +1,19 @@
 FROM python:3.7-alpine
-MAINTAINER Yiting 
+MAINTAINER Yiting
 
 # Set an environment variable, tell python in unbuffer mode
 ENV PYTHONUNBUFFERED 1
 
 # Copy file from current repo to docker image
 COPY ./requirements.txt /requirements.txt
+# use package mangement tool: apk to install postgresql-client
+RUN apk add --update --no-cache postgresql-client
+#
+RUN apk add --update --no-cache --virtual .tmp-build-deps \
+    gcc libc-dev linux-headers postgresql-dev
 # Install all requirements
 RUN pip install -r /requirements.txt
+RUN apk del .tmp-build-deps
 
 RUN mkdir /app
 # Change working dir
@@ -20,4 +26,3 @@ COPY ./app app
 RUN adduser -D user
 # Switch to the user
 USER user
-
