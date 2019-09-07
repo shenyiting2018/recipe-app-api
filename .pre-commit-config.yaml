@@ -9,7 +9,11 @@ repos:
     rev: 19.3b0
     hooks:
     -   id: black
--   repo: https://github.com/pre-commit/mirrors-autopep8
-    rev: 'v1.3.1'  # Use the sha / tag you want to point at
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v1.2.3
     hooks:
-    -   id: autopep8
+        - id: flake8
+#-   repo: https://github.com/pre-commit/mirrors-autopep8
+#    rev: 'v1.3.1'  # Use the sha / tag you want to point at
+#    hooks:
+#    -   id: autopep8

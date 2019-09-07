@@ -1,2 +1,2 @@
 docker-compose build  -- build image with docker-compose configure
-docker-compose run app sh -c "python manage.py test"  -- run unit test
+docker-compose run app sh -c "python manage.py test && flake8"   -- run unit test
