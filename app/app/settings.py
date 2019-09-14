@@ -25,7 +25,12 @@ SECRET_KEY = "icf%-%o%7#^4xbu#*5uu)isl@k7g6ky*d(lh1l!1a2d(d5el(z"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0",
+    "secure-thicket-79510.herokuapp.com",
+]
 
 
 # Application definition
